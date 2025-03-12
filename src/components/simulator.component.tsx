@@ -1,27 +1,17 @@
 import React from 'react';
-import { CommissionSimulatorProps } from '../types/types';
+import { CommissionSimulatorProps } from '../types/generics.types';
 import {
   calculateCareerVolume,
   calculateMonthlySales,
   calculateNetEarnings,
   calculateTotalToSell,
   formatCurrency,
-} from '../utils/utils';
+} from '../utils/operations.utils';
 import { COMMISION_RATES, PRODUCTS } from '../lib/constants';
 import Button from '../ui/button.ui';
 import { ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card.ui';
 import { Badge, Dropdown } from '../ui/dropdown.ui';
-
-// En este componente se va mostrar lo siguiente :
-// - El producto seleccionado y su precio
-// - La ganancia neta de hoy
-// - Una tabla con 3 columnas :
-//   - Comision
-//   - Ventas mensuales (En dinero peso)
-//   - Volumen de Carrera (en USD)
-//   - Ventas mensuales (Cantidad)
-// - Un boton para continuar al PLAN DE ACCION
 
 const Simulator: React.FC<CommissionSimulatorProps> = ({
   userData,
@@ -52,7 +42,7 @@ const Simulator: React.FC<CommissionSimulatorProps> = ({
             <CardTitle>Producto</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className='bg-[#215a6c] text-[#c6dbe1] rounded-md text-center font-medium py-1.5 mb-2'>
+            <div className='bg-blue-500 text-white rounded-md text-center font-bold py-1.5 mb-2 '>
               {userData?.selectedProduct?.name || 'No seleccionado'}
             </div>
             <p className='text-sm'>

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { SelectProps } from '../types/types';
 import styles from '../styles/select.module.css';
+import { SelectProps } from '../types/ui.types';
 
 const Select: React.FC<SelectProps> = ({
   options,

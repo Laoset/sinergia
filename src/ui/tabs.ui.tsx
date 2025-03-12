@@ -1,6 +1,6 @@
 import React from 'react';
-import { TabsProps } from '../types/types';
 import { TABS } from '../lib/constants';
+import { TabsProps } from '../types/ui.types';
 
 const Tabs: React.FC<TabsProps> = ({ activeTab, onTabChange }) => {
   const activeIndex = TABS.findIndex((tab) => tab.label === activeTab);

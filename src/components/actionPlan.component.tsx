@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActionPlanProps } from '../types/types';
+import { ActionPlanProps, DownloadButtonProps } from '../types/generics.types';
 import {
   calculateCareerVolume,
   calculateMonthlySales,
@@ -8,11 +8,13 @@ import {
   calculateTotalToSell,
   calculateWeeklyPresentations,
   formatDate,
-} from '../utils/utils';
-import { Download } from 'lucide-react';
+} from '../utils/operations.utils';
 import { COMMISION_RATES, CONVERSION_RATES } from '../lib/constants';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card.ui';
 import { Badge, Dropdown } from '../ui/dropdown.ui';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import PlanDeAccionPDF from './actionPlanPdf.component';
+import Button from '../ui/button.ui';
 
 const ActionPlan: React.FC<ActionPlanProps> = ({ userData }) => {
   const formattedDate = formatDate(new Date());
@@ -158,15 +160,41 @@ const ActionPlan: React.FC<ActionPlanProps> = ({ userData }) => {
           })}
         </div>
       </div>
-      <button
-        // onClick={handleShare}
-        className='w-full h-12 text-base font-medium mt-4 bg-[#215a6c] text-white rounded-md hover:bg-[#1a4857] focus:outline-none focus:ring-2 focus:ring-[#215a6c] focus:ring-offset-2 flex items-center justify-center'
-      >
-        <Download className='mr-2' />
-        Descargar mi Plan de Acción
-      </button>
+      <DownloadButton
+        formattedDate={formattedDate}
+        prospectsNeeded={prospectsNeeded}
+        monthlyPresentations={monthlyPresentations}
+        weeklyPresentations={weeklyPresentations}
+      />
     </div>
   );
 };
-
+const DownloadButton = ({
+  formattedDate,
+  prospectsNeeded,
+  monthlyPresentations,
+  weeklyPresentations,
+}: DownloadButtonProps) => {
+  return (
+    <div className='mt-6'>
+      <PDFDownloadLink
+        document={
+          <PlanDeAccionPDF
+            formattedDate={formattedDate}
+            prospectsNeeded={prospectsNeeded}
+            monthlyPresentations={monthlyPresentations}
+            weeklyPresentations={weeklyPresentations}
+          />
+        }
+        fileName='plan_de_accion.pdf'
+      >
+        {({ loading }) => (
+          <Button type='button'>
+            {loading ? 'Generando PDF...' : 'Descargar mi Plan de Acción'}
+          </Button>
+        )}
+      </PDFDownloadLink>
+    </div>
+  );
+};
 export default ActionPlan;

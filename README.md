@@ -1,54 +1,62 @@
-# React + TypeScript + Vite
+# Desafío Técnico Sinergia Creativa - Desarrollador Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es un simulador de comisiones y planificador de actividades desarrollado con **React + Vite** enfocado principalmente a la vista móvil. Permite a los usuarios calcular su rendimiento comercial basado en diferentes variables y organizar sus actividades para maximizar su eficiencia.
 
-Currently, two official plugins are available:
+## 🚀 Instalación y ejecución
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Sigue estos pasos para levantar el servidor localmente:
 
-## Expanding the ESLint configuration
+1. Instala las dependencias:
+   ```bash
+   npm install  # o pnpm install
+   ```
+2. Inicia el servidor en modo desarrollo:
+   ```bash
+   npm run dev  # o pnpm run dev
+   ```
+3. Abre [http://localhost:5173](http://localhost:5173) en tu navegador para ver la app.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📌 Estructura del Código
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+El proyecto sigue una convención de nomenclatura clara y consistente para facilitar la comprensión y el mantenimiento del código:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Nombres en camelCase**: La primera letra de la primera palabra se escribe en minúscula, y las demás palabras se escriben con la primera letra en mayúscula.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+  - Ejemplo: `actionPlan.component.tsx`.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- **Sufijos descriptivos**: Cada archivo tiene un sufijo que indica su tipo o propósito:
+  - `.component.tsx`: Componentes.
+  - `.ui.tsx`: Componentes de UI reutilizables.
+  - `.types.ts`: Tipos de TypeScript.
+  - `.hooks.ts`: Custom hooks de React.
+  - `.utils.ts`: Funciones utilitarias.
+
+Ejemplos:
+
+- `formInput.ui.tsx`: Un componente de UI reutilizable para inputs de formulario.
+- `generics.types.ts`: Definiciones de tipos genéricos.
+- `useTab.hooks.ts`: Un custom hook para manejar la lógica de pestañas.
+
+````
+
+## 🧪 Testing
+
+Este proyecto utiliza **Jest** y **Testing Library** para pruebas unitarias y de integración.
+
+### 🔹 Ejecutar pruebas con Jest Y Testing Library
+
+1. Ejecuta los tests con:
+   ```bash
+   npm run test  # o pnpm run test
+````
+
+## 🛠️ Tecnologías utilizadas
+
+- React 19
+- TypeScript
+- TailwindCSS
+- Lucide Icons
+- Jest
+- Testing Library
+- Vite
+- Zod

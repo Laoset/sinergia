@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputFieldProps } from '../types/types';
+import { InputFieldProps } from '../types/ui.types';
 
 const InputField: React.FC<InputFieldProps> = ({
   id,

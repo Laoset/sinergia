@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { DropdownProps } from '../types/typesUi';
+import { DropdownProps } from '../types/ui.types';
 import { Card, CardContent, CardHeader } from './card.ui';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
@@ -39,7 +39,7 @@ export const Badge: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   return (
-    <span className='text-xs bg-[#215a6c] text-[#c6dbe1] px-2 py-0.5 rounded-full'>
+    <span className='text-xs bg-blue-500 text-white px-2 py-0.5 rounded-full'>
       {children}
     </span>
   );

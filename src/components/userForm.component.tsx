@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { UserData, UserFormProps } from '../types/types';
+import { UserData, UserFormProps } from '../types/generics.types';
 import { COMMISION_LEVELS, MONTHS, PRODUCTS } from '../lib/constants';
 import Select from '../ui/select.ui';
 import InputField from '../ui/formInput.ui';
@@ -9,7 +9,6 @@ import { formSchema } from '../lib/formSchema';
 const UserForm = ({ userData, onSubmit }: UserFormProps) => {
   const [formData, setFormData] = useState<UserData>(userData);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [touched, setTouched] = useState<Record<string, boolean>>({});
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -18,10 +17,6 @@ const UserForm = ({ userData, onSubmit }: UserFormProps) => {
       [name]: value,
     });
 
-    setTouched({
-      ...touched,
-      [name]: true,
-    });
     setErrors((prevErrors) => ({
       ...prevErrors,
       [name]: '',
@@ -47,11 +42,6 @@ const UserForm = ({ userData, onSubmit }: UserFormProps) => {
       ...formData,
       [name]: value,
     });
-
-    setTouched({
-      ...touched,
-      [name]: true,
-    });
   };
   const handleSelectProductChange = (name: string, value: string) => {
     const findProduct = PRODUCTS.find((product) => product.id === value);
@@ -59,11 +49,6 @@ const UserForm = ({ userData, onSubmit }: UserFormProps) => {
     setFormData({
       ...formData,
       selectedProduct: findProduct || null,
-    });
-
-    setTouched({
-      ...touched,
-      [name]: true,
     });
   };
 
@@ -79,7 +64,6 @@ const UserForm = ({ userData, onSubmit }: UserFormProps) => {
             placeholder='Ingrese su nombre'
             label='Nombre'
             error={errors.name}
-            touched={touched.name}
           />
 
           <Select
@@ -99,7 +83,6 @@ const UserForm = ({ userData, onSubmit }: UserFormProps) => {
             onChange={handleInputChange}
             label='Mi Ticket Promedio en USD'
             error={errors.averageTicket}
-            touched={touched.averageTicket}
           />
 
           <InputField
@@ -110,7 +93,6 @@ const UserForm = ({ userData, onSubmit }: UserFormProps) => {
             onChange={handleInputChange}
             label='Valor USD'
             error={errors.usdValue}
-            touched={touched.usdValue}
           />
 
           <Select
@@ -136,7 +118,6 @@ const UserForm = ({ userData, onSubmit }: UserFormProps) => {
             onChange={handleInputChange}
             label='¿Cuánto quiero ganar este mes?'
             error={errors.targetEarnings}
-            touched={touched.targetEarnings}
           />
           <Select
             id='actualCommission'

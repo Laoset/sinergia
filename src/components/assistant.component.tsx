@@ -1,6 +1,6 @@
 import Tabs from '../ui/tabs.ui';
 import { useTabs } from '../hooks/useTab.hooks';
-import { UserData } from '../types/types';
+import { UserData } from '../types/generics.types';
 import { useState } from 'react';
 import UserForm from './userForm.component';
 import Simulator from './simulator.component';

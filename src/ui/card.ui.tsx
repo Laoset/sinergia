@@ -4,7 +4,7 @@ import {
   CardHeaderProps,
   CardProps,
   CardTitleProps,
-} from '../types/typesUi';
+} from '../types/ui.types';
 
 export const Card: React.FC<CardProps> = ({
   children,
@@ -34,7 +34,7 @@ export const CardTitle: React.FC<CardTitleProps> = ({
   className = '',
 }) => {
   return (
-    <h3 className={`text-base font-medium text-[#215a6c] ${className}`}>
+    <h3 className={`text-base font-medium text-black ${className}`}>
       {children}
     </h3>
   );
