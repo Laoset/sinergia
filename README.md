@@ -37,8 +37,6 @@ Ejemplos:
 - `generics.types.ts`: Definiciones de tipos genéricos.
 - `useTab.hooks.ts`: Un custom hook para manejar la lógica de pestañas.
 
-````
-
 ## 🧪 Testing
 
 Este proyecto utiliza **Jest** y **Testing Library** para pruebas unitarias y de integración.
@@ -48,7 +46,7 @@ Este proyecto utiliza **Jest** y **Testing Library** para pruebas unitarias y de
 1. Ejecuta los tests con:
    ```bash
    npm run test  # o pnpm run test
-````
+   ```
 
 ## 🛠️ Tecnologías utilizadas
 

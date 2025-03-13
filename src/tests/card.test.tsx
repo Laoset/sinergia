@@ -51,6 +51,6 @@ describe('CardTitle UI Component', () => {
     render(<CardTitle>Card Title</CardTitle>);
     const title = screen.getByText('Card Title');
     expect(title).toBeInTheDocument();
-    expect(title).toHaveClass('text-base font-medium text-[#215a6c]');
+    expect(title).toHaveClass('text-base font-medium text-black');
   });
 });

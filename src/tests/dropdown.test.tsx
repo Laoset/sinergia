@@ -39,7 +39,7 @@ describe('Badge', () => {
     const badge = screen.getByText('New');
     expect(badge).toBeInTheDocument();
     expect(badge).toHaveClass(
-      'text-xs bg-[#215a6c] text-[#c6dbe1] px-2 py-0.5 rounded-full'
+      'text-xs bg-blue-500 text-white px-2 py-0.5 rounded-full'
     );
   });
 });
